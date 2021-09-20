@@ -28,7 +28,6 @@ func main() {
 		for _, update := range updates {
 			err = respond(update)
 
-			fmt.Println(err)
 			if err != nil {
 				log.Println("Smth went wrong: ", err.Error())
 			}
@@ -62,7 +61,6 @@ func respond(update Update) error {
 	botMessage.ChatId = update.Message.Chat.ChatId
 	botMessage.Text = update.Message.Text
 
-	fmt.Println(botMessage)
 	buf, err := json.Marshal(botMessage)
 	if err != nil {
 		return err
